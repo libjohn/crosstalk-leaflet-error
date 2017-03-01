@@ -3,6 +3,8 @@ On Windows I cannot get leaflet to work properly with crosstalk and DT.
 
 
 ## Procedures I ran to determine the problem
+
+### Trial 1
 1. run-all leaflet.Rmd
 2. knit
 3. run flex-empty.Rmd
@@ -12,25 +14,32 @@ On Windows I cannot get leaflet to work properly with crosstalk and DT.
 7. crosstalk-1.Rmd   # does not load crosstalk, yet!
 8. Knit
 9. run crosstalk-2Rmd  # this one does load the crosstalk library but does not run the "share-talk" chunk
-# Trial one, if I install.package("leaflet") it installs a two versions of leaflet (1.0.1 & 1.1.0).  
-# But I don't have the permissions on this Lab computer to uninstall version 1.0.1.  I'm going to try a VCL.
-#
-# $version.string
-[1] "R version 3.3.2 (2016-10-31)"
-# Rstudio 1.0.44
-# crosstalk 1.0.0
-# leaflet 1.0.1
-# DT 0.2
-# Tidyverse 1.0.0
-# flexdashboard 0.4
 
-###############
-Trail Two
-RStudio - 1.0.136
-R - R version 3.3.1 (2016-06-21) 
-# Tidyverse 1.1.1
-# leaflet 1.1.0
-# crosstalk 1.0.0
+- Trial one, if I install.package("leaflet") it installs a two versions of leaflet (1.0.1 & 1.1.0).  
+
+- But I don't have the permissions on this Lab computer to uninstall version 1.0.1.  I'm going to try a VCL.
+
+
+#### Versions
+
+- $version.string
+[1] "R version 3.3.2 (2016-10-31)"
+- Rstudio 1.0.44
+- crosstalk 1.0.0
+- leaflet 1.0.1
+- DT 0.2
+- Tidyverse 1.0.0
+- flexdashboard 0.4
+
+---
+
+### Trail Two
+
+#### RStudio - 1.0.136
+- R - R version 3.3.1 (2016-06-21) 
+- Tidyverse 1.1.1
+- leaflet 1.1.0
+- crosstalk 1.0.0
 
 1. run-all leaflet.Rmd
 2. knit
