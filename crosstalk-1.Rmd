@@ -1,0 +1,39 @@
+---
+title: "Cross1 - HTML Document using Not Yet Loading crosstalk"
+output: html_document
+---
+
+```{r loadDataETC, include=FALSE}
+library(tidyverse)     # tidy data, includes readr
+library(leaflet)       # GIS/mapping -- An HTML Widget
+library(DT)            # DataTables provides filtering, pagination, sorting, and many other features in the tables.  An HTML Widget
+#  library(crosstalk)     # interactive linking between HTML widgets
+```
+
+```{r, include=FALSE}
+starbucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+
+starbucks  %>%  
+  filter(State == "NC") -> starbucks
+```
+
+## DataTable
+```{r datatable}
+
+starbucks  %>%  
+  select(Name, `Facility ID`, Location, Latitude, Longitude) %>% 
+  rename(latitude = Latitude, longitude = Longitude) -> sd
+
+# sd %>% 
+#   datatable()
+
+datatable(sd, extensions="Scroller", style="bootstrap", width="100%", 
+            options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
+```
+
+## Map
+```{r leaflet map}
+
+leaflet(sd) %>% addTiles() %>% addMarkers(lat = ~ latitude, lng = ~ longitude, popup = starbucks$Name)
+
+```
